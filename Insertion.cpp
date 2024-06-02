@@ -1,6 +1,8 @@
 #include<iostream>
 #include<random>
 #include<iomanip>
+#include<chrono>
+#include<vector>
 
 
 using namespace std;
@@ -62,4 +64,17 @@ int main()
 
     //after sorting
     display(arr, n);
+
+    
+    // Start measuring time
+    auto start = std::chrono::high_resolution_clock::now();
+
+    // Stop measuring time
+    auto end = chrono::high_resolution_clock::now();
+
+    // Calculate the duration in milliseconds
+    auto duration = chrono::duration_cast<std::chrono::milliseconds>(end - start);
+
+    // Print execution time in milliseconds
+    std::cout << "Execution time: " << duration.count() << " ms" << std::endl;
 }
