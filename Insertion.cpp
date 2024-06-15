@@ -3,7 +3,6 @@
 
 using namespace std;
 
-// Function for insertion sort
 void insertionSort(int arr[], int n)
 {
     int i, j, k;
@@ -19,7 +18,6 @@ void insertionSort(int arr[], int n)
     }
 }
 
-// Function for displaying the array
 void display(int arr[], int n)
 {
     for (int i = 0; i < n; i++)
@@ -27,14 +25,13 @@ void display(int arr[], int n)
     cout << endl;
 }
 
-// Driver code
 int main()
 {
     random_device rd;
     mt19937 gen(rd());
     uniform_int_distribution<> dis(0, 999);
 
-    int n = 20;  // Maximum size of the array
+    int n = 20;
     int arr[n];
 
     // Generating random numbers to store in an array
@@ -49,7 +46,6 @@ int main()
     cout<<"Before Sorting:\n";
     display(arr,n);
 
-    // Perform insertion sort
     insertionSort(arr, n);
 
     //after sorting array
