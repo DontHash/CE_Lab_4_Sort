@@ -1,13 +1,9 @@
-#include<iostream>
-#include<random>
-#include<iomanip>
-#include<chrono>
-#include<vector>
-
+#include <iostream>
+#include <random>
 
 using namespace std;
 
-//function for insertionSort
+// Function for insertion sort
 void insertionSort(int arr[], int n)
 {
     int i, j, k;
@@ -23,58 +19,43 @@ void insertionSort(int arr[], int n)
     }
 }
 
-//function for displaying the array
+// Function for displaying the array
 void display(int arr[], int n)
 {
-    int i;
-    for (i = 0; i < n; i++)
+    for (int i = 0; i < n; i++)
         cout << arr[i] << " ";
     cout << endl;
 }
 
-//driver code
+// Driver code
 int main()
 {
     random_device rd;
     mt19937 gen(rd());
     uniform_int_distribution<> dis(0, 999);
 
-    int i;
-    int arr[20];
-    int n = sizeof((arr)) / (sizeof(int));
+    int n = 20;  // Maximum size of the array
+    int arr[n];
 
-    //Generating random numbers to store in an array
+    // Generating random numbers to store in an array
     for (int i = 0; i < n; i++)
     {
         arr[i] = dis(gen);
     }
 
+    cout << "Input size: " << n << endl;
+
     //before sorting
+    cout<<"Before Sorting:\n";
+    display(arr,n);
 
-    cout<<"\nBefore sorting\n";
-
-    for (i = 0; i < n; i++)
-    {
-        cout << " " << arr[i];
-    }
-
-    cout<<"\nAfter Sorting \n";
-
+    // Perform insertion sort
     insertionSort(arr, n);
 
-    //after sorting
+    //after sorting array
+    cout<<"After Sorting:\n";
     display(arr, n);
 
-    
-    // Start measuring time
-    auto start = std::chrono::high_resolution_clock::now();
 
-    // Stop measuring time
-    auto end = chrono::high_resolution_clock::now();
-
-    // Calculate the duration in milliseconds
-    auto duration = chrono::duration_cast<std::chrono::milliseconds>(end - start);
-
-    // Print execution time in milliseconds
-    std::cout << "Execution time: " << duration.count() << " ms" << std::endl;
+    return 0;
 }
